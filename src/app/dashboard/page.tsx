@@ -152,9 +152,9 @@ export default function DashboardPage() {
   const detected = detectCols(columns);
 
   // Category options
-  const catOptions = [...new Set(
+  const catOptions = Array.from(new Set(
     allData.map((r) => String(r[detected.category ?? ''] ?? '')).filter(Boolean)
-  )].sort();
+  )).sort();
 
   const sheets = meta?.sheets ?? [];
   const sheetTabs = ['All', ...sheets];
